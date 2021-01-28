@@ -4,17 +4,57 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>project-base-karaf</artifactId>
+    <groupId>com.example</groupId>
+    <version>1.0-SNAPSHOT</version>
     <name>Project base for Vaadin Flow and Karaf</name>
     <packaging>jar</packaging>
-    <parent>
-        <groupId>com.example</groupId>
-        <artifactId>project-base-karaf-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <vaadin.version>19.0-SNAPSHOT</vaadin.version>
         <osgi.bundle.version>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</osgi.bundle.version>
     </properties>
+
+    <repositories>
+        <!-- Repository used by many Vaadin add-ons -->
+        <repository>
+            <id>Vaadin Directory</id>
+            <url>https://maven.vaadin.com/vaadin-addons</url>
+        </repository>
+        <repository>
+            <id>vaadin-prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+        </repository>
+        <repository>
+            <id>vaadin-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>vaadin-prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>vaadin-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${vaadin.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -29,6 +69,31 @@
                     <artifactId>fusion-endpoint</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-osgi</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-server</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-data</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-client</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-html-components</artifactId>
         </dependency>
 
         <dependency>
