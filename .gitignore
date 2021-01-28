@@ -1,0 +1,14 @@
+/target/
+.classpath
+.project
+.settings
+# Idea
+.idea
+*.iml
+
+/bin/
+
+/node_modules/
+
+frontend/generated/*
+frontend/themes/**/*.generated.js
