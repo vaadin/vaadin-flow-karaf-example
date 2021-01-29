@@ -11,8 +11,8 @@ To access it directly from github, clone the repository and import the project t
 
 
 ## Build and run a Vaadin web application OSGi bundle
-The simplest way to start the project is run command `mvn install -Prun`.
-This command build the starter project and run it in Karaf.
+The simplest way to start the project is run command `mvn install` to install project artifact and
+`mvn install -Prun` to run Karaf OSGi container.
 
 Note that it needs some time to deploy and start all the features so it may take some time when the URL 
 http://localhost:8181 starts to work.
