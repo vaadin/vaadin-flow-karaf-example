@@ -77,26 +77,6 @@
         </dependency>
         
         <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>flow-server</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>flow-data</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>flow-client</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>flow-html-components</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.cmpn</artifactId>
             <version>7.0.0</version>
@@ -241,36 +221,6 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>java11</id>
-            <!-- Java 11 has no built-in "jaxb" and "activation" packages 
-                so they should be provided as dependencies to be able to resolve bundles 
-                which depends on them -->
-            <activation>
-                <jdk>11</jdk>
-            </activation>
-            <properties>
-                <maven.compiler.release>8</maven.compiler.release>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>javax.xml.bind</groupId>
-                    <artifactId>jaxb-api-osgi</artifactId>
-                    <version>2.2.7</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.sun.xml.bind</groupId>
-                    <artifactId>jaxb-osgi</artifactId>
-                    <version>2.2.7</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.sun.activation</groupId>
-                    <artifactId>javax.activation</artifactId>
-                    <version>1.2.0</version>
-                </dependency>
-            </dependencies>
-        </profile>
-
         <profile>
             <id>run</id>
             <build>
