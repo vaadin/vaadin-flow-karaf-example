@@ -1,4 +1,4 @@
-package com.example.starter.base;
+package com.example.starter.base.impl;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
@@ -12,7 +12,7 @@ import com.vaadin.flow.router.Route;
  * The main view contains a text field for getting the user name and a button
  * that shows a greeting message in a notification.
  */
-@Route("")
+@Route(value = "", layout = MainLayout.class)
 public class MainView extends VerticalLayout {
 
     public MainView() {
