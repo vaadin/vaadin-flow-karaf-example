@@ -37,11 +37,9 @@ or via some annotation like `VaadinMode` which is available in the example.
 Another way to set the `productionMode` value is explicitly set it via the Vaadin maven plugin configuration:
 
 ```xml
- <configuration>
+<configuration>
     <productionMode>false</productionMode>
 </configuration>
-
-```
 
 The values will be set in the token file (`flow-build-info.json`) which is read to 
 create a deployment configuration for a Vaadin servlet.
