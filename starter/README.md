@@ -1,16 +1,5 @@
 # Base Starter for Vaadin Flow and Karaf in NPM mode
 
-This project can be used as a starting point to create your own Vaadin Flow application bundle for Karaf.
-It has the necessary dependencies and files to help you get started.
-**This project has been revised for Vaadin 19 (GA in March 2021) which brings back OSGi support in npm mode.
-For now, it Vaadin OSGi support is only for Flow based views (Java UIs), but not for Fusion (TypeScript UIs).**
-
-For more Vaadin usage samples, you can go to vaadin.com/start.
-
-To access it directly from github, clone the repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
-
-
-## Build and run a Vaadin web application OSGi bundle
 The simplest way to start the project is run command `mvn install` to install project artifact and
 `mvn install -Prun` to run Karaf OSGi container.
 
@@ -90,17 +79,3 @@ bundle should register the servlet itself.
 here is enabling WS on pure OSGi container. It works on hybrid OSGi container which allows
 to deploy WARs (like Karaf) but this is exactly the same as for plain web server. It's not clear what
 needs to be done to enable WS for a pure OSGi container.
-
-
-## Deploying Vaadin specific bundles to an OSGi container
-
-Vaadin application generally contains dependencies to other bundles: e.g. Vaadin components like `Button`,
-`TextField` , etc. Every Vaadin component is based on a Web Component which
-is represented by frontend resources. All frontend resources are built into a bundle
-along with Vaadin WAB. As a result:
-- any Vaadin component bundle update is possible only within the same minor version, 
-so that the Web Component version stays the same (and only Java code is updated). We don't recommend 
-updating any version over a minor for Flow or the web component Flow integrations (even though it's
-not prevented anyhow at the moment).
-- Updating any bundle that has frontend resources requires that the frontend build goal `build-frontend` 
-is run and the WAB is redeployed to get the static frontend bundle updated.
