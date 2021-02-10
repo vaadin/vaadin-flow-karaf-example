@@ -1,5 +1,6 @@
 package com.example.starter.base.impl;
 
+import com.example.starter.base.GreetService;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -7,6 +8,9 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceReference;
 
 /**
  * The main view contains a text field for getting the user name and a button
@@ -15,15 +19,29 @@ import com.vaadin.flow.router.Route;
 @Route(value = "", layout = MainLayout.class)
 public class MainView extends VerticalLayout {
 
+    public GreetService getGreetService() throws Exception {
+        BundleContext bundleContext = FrameworkUtil.getBundle(MainView.class).getBundleContext();
+        ServiceReference<GreetService> serviceReference = bundleContext.getServiceReference(GreetService.class);
+        if( serviceReference == null) {
+            throw new Exception("Greet service not currently available, install it into Karaf to get proper greeting");
+        }
+        return bundleContext.getService(serviceReference);
+    }
+
     public MainView() {
 
         // Use TextField for standard text input
         TextField textField = new TextField("Your name");
         textField.addThemeName("bordered");
         // Button click listeners can be defined as lambda expressions
-        GreetService greetService = new GreetService();
-        Button button = new Button("Say hello", e -> Notification
-                .show(greetService.greet(textField.getValue())));
+        Button button = new Button("Say hello", e -> {
+            try {
+                Notification.show(getGreetService().greet(textField.getValue()));
+            } catch (Exception exception) {
+                Notification.show(exception.getMessage());
+            }
+
+        });
 
         // Theme variants give you predefined extra styles for components.
         // Example: Primary button is more prominent look.
