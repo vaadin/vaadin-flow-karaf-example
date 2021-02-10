@@ -1,7 +1,7 @@
-# Vaadin Project with Navigation Targets
+# Vaadin Project that provides optional help view
 
-The project contains Vaadin navigation target view.
-This project is not required for the `starter` project and may be deployed and undelployed
+The project contains an optional Vaadin navigation target view.
+This project is not required for the `starter` project and may be deployed and undeployed
 at any time.
 
 The navigation target defined in the project (this project contains `"/help"` navigation target) becomes
@@ -16,8 +16,8 @@ be deployed to it via commands:
 
 
 ```
-karaf@root()> bundle:install mvn:com.example/extra-routes/1.0-SNAPSHOT // installs the project bundle
-karaf@root()> bundle:start mvn:com.example/extra-routes/1.0-SNAPSHOT // starts the bundle
+karaf@root()> bundle:install mvn:com.example/help-view/1.0-SNAPSHOT // installs the project bundle
+karaf@root()> bundle:start mvn:com.example/help-view/1.0-SNAPSHOT // starts the bundle
 ```
 
 As an option it's possible to reuse the Karaf distribution which is run via Maven plugin in the 

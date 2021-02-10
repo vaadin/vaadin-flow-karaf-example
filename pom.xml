@@ -90,7 +90,7 @@
 
     <modules>
         <module>starter</module>
-        <module>extra-routes</module>
+        <module>help-view</module>
     </modules>
 
 </project>

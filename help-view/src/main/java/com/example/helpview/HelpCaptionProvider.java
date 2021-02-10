@@ -1,4 +1,4 @@
-package com.example.routes;
+package com.example.helpview;
 
 import com.example.starter.base.NavigationCaptionProvider;
 

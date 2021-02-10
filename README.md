@@ -11,22 +11,35 @@ To access it directly from github, clone the repository and import the project t
 
 The project consist of two subprojects:
 - starter
-- extra-routes
+- greetservice
+- help-view
 
 The `starter` project contains the code for Web Application Bundle (WAB) which can be deployed
-to any OSGi container.
+to any OSGi container. It contains MainView, that uses GreetService, if available as OSGi service. It also provides a simple menu and MainLayout for other bundles that can contribute views to the UI.
 
-The `extra-routes` project represents another project which contains route targets and can be deployed
-or undeployed at any time. The route targets in the project will be available in the `starter` project
-if the `extra-routes` bundle is deployed.
+The `help-view` project represents another project which contains an optional view (and route target). It can be deployed or undeployed at any time. The view will be available in the `starter` project if the `help-view` bundle is deployed.
 
+The `greetservice` project provides implementation for GreetService, that is used by the MainView in the `starter` project.
 
 ## Build and run a Vaadin web application OSGi bundle
 
 The simplest way to start the project is run command `mvn install` to install project artifact and
 `mvn -pl starter install -Prun` to run Karaf OSGi container.
 
-See readme files starter/README.md and extra-routes/README.md in the projects for further details.
+For more dynamic tutorial follow these steps:
+
+ * If you didn't already, build the project using `mvn install`
+ * Download Karaf and start it from command line using `./bin/karaf` from the Karaf directory
+ * In the Karaf console, execute `feature:install http war` to install required web capabilities
+ * Next, install the plain starter using `feature:repo-add mvn:com.example/project-base-karaf/1.0.0-SNAPSHOT/xml/features` and `feature:install project-base-karaf`
+ * Now you can navigate to http://localhost:8181 to see the basic UI without the other bundles. Try clicking the button as well.
+ * Next, install the greetservice bundle using `bundle:install mvn:com.example/greetservice/1.0.0-SNAPSHOT` and `bundle:start greetservice`
+ * Try the button again
+ * Next install the optional help view using `bundle:install mvn:com.example/help-view/1.0.0-SNAPSHOT` and `bundle:start help-view`
+ * Reload the browser and see how a simple menu appears with the newly loaded help view in it
+
+
+See readme files starter/README.md and help-view/README.md in the projects for further details.
 
 
 ## Deploying Vaadin specific bundles to an OSGi container

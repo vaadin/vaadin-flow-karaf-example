@@ -11,6 +11,8 @@
 
     <artifactId>project-base-karaf</artifactId>
     <name>Project base for Vaadin Flow and Karaf</name>
+    <description>This example bundle contains default web app, that can be 
+        complemented by other view bundles.</description>
     <packaging>jar</packaging>
 
     <dependencies>
