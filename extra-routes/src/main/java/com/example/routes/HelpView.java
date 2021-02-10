@@ -33,7 +33,7 @@ public class HelpView extends VerticalLayout {
 
     private Div createViewInfo() {
         Div info = new Div();
-        info.setText("This view is located ouside of web application bundle "
+        info.setText("This view is located outside of web application bundle "
                 + "and can be undeployed/deployed at any time preserving functionality of the main application. "
                 + "The navigation target '/help' becomes available once the bundle with this view is deployed.");
         return info;

@@ -1,8 +1,3 @@
-Bundle-SymbolicName: ${project.groupId}.karaf.base
-Bundle-Name: Base Starter for Vaadin Flow and Karaf
-Bundle-Version: ${osgi.bundle.version}
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Import-Package: !java.*,*
 Export-Package: !*, !com.example.starter.base.osgi,com.example.starter.base
 Vaadin-OSGi-Extender: true
