@@ -91,7 +91,7 @@
     <modules>
         <module>starter</module>
         <module>help-view</module>
-        <module>greetservice</module>
+        <module>greetservice-impl</module>
     </modules>
 
 </project>

@@ -9,31 +9,31 @@ For more Vaadin usage samples, you can go to vaadin.com/start.
 
 To access it directly from github, clone the repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
 
-The project consist of two subprojects:
-- starter
-- greetservice
+The project consist of three sub-projects:
+- starter 
+- greetservice-impl
 - help-view
 
 The `starter` project contains the code for Web Application Bundle (WAB) which can be deployed
-to any OSGi container. It contains MainView, that uses GreetService, if available as OSGi service. It also provides a simple menu and MainLayout for other bundles that can contribute views to the UI.
+to any OSGi container. It contains MainView, that uses GreetService, in case an implementation is available as an OSGi service. It also provides a simple menu and MainLayout for other bundles that can contribute views to the UI.
 
 The `help-view` project represents another project which contains an optional view (and route target). It can be deployed or undeployed at any time. The view will be available in the `starter` project if the `help-view` bundle is deployed.
 
-The `greetservice` project provides implementation for GreetService, that is used by the MainView in the `starter` project.
+The `greetservice-impl` project provides an implementation for GreetService, that is defined and used by the MainView in the `starter` project.
 
 ## Build and run a Vaadin web application OSGi bundle
 
 The simplest way to start the project is run command `mvn install` to install project artifact and
-`mvn -pl starter install -Prun` to run Karaf OSGi container.
+`mvn -pl starter install -Prun` to run Karaf OSGi container. Note that this only deploys the starter bundle, and not the optional help-view or the greetservice-impl.
 
 For more dynamic tutorial follow these steps:
 
- * If you didn't already, build the project using `mvn install`
+ * Build the project using `mvn install`
  * Download Karaf and start it from command line using `./bin/karaf` from the Karaf directory
  * In the Karaf console, execute `feature:install http war` to install required web capabilities
  * Next, install the plain starter using `feature:repo-add mvn:com.example/project-base-karaf/1.0.0-SNAPSHOT/xml/features` and `feature:install project-base-karaf`
  * Now you can navigate to http://localhost:8181 to see the basic UI without the other bundles. Try clicking the button as well.
- * Next, install the greetservice bundle using `bundle:install mvn:com.example/greetservice/1.0.0-SNAPSHOT` and `bundle:start greetservice`
+ * Next, install the greetservice-impl bundle using `bundle:install mvn:com.example/greetservice-impl/1.0.0-SNAPSHOT` and `bundle:start greetservice-impl`
  * Try the button again
  * Next install the optional help view using `bundle:install mvn:com.example/help-view/1.0.0-SNAPSHOT` and `bundle:start help-view`
  * Reload the browser and see how a simple menu appears with the newly loaded help view in it
