@@ -1,20 +1,14 @@
 package com.example.starter.base.impl;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
-
-import com.example.starter.base.NavigationCaptionProvider;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.FrameworkUtil;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceReference;
 
 import com.vaadin.flow.component.AttachEvent;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.DetachEvent;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouteData;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
@@ -72,29 +66,12 @@ public class MainLayout extends HorizontalLayout implements RouterLayout {
     }
 
     private String getCaption(RouteData data) {
-        try {
-            Bundle bundle = FrameworkUtil.getBundle(MainLayout.class);
-            ServiceReference<?>[] references = bundle.getBundleContext()
-                    .getAllServiceReferences(
-                            NavigationCaptionProvider.class.getName(), null);
-            Optional<NavigationCaptionProvider> routeCaptionProvider = Stream
-                    .of(references).map(bundle.getBundleContext()::getService)
-                    .map(NavigationCaptionProvider.class::cast)
-                    .filter(provider -> provider
-                            .isApplicable(data.getNavigationTarget()))
-                    .findFirst();
-            String routeCaption;
-            if (routeCaptionProvider.isPresent()) {
-                routeCaption = routeCaptionProvider.get()
-                        .getCaption(data.getNavigationTarget());
-            } else {
-                routeCaption = data.getTemplate();
-            }
-            return routeCaption;
-        } catch (InvalidSyntaxException e) {
-            // this may not happen with null as a filter
-            assert false;
-            return "";
+        Class<? extends Component> navigationTarget = data.getNavigationTarget();
+        PageTitle title = navigationTarget.getAnnotation(PageTitle.class);
+        if(title != null) {
+            return title.value();
+        } else {
+            return navigationTarget.getSimpleName();
         }
     }
 }

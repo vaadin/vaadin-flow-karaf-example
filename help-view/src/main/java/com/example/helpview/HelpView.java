@@ -20,9 +20,11 @@ import com.example.starter.base.ContentLayout;
 import com.vaadin.flow.component.Unit;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@Route(value = "help", layout = ContentLayout.class)
+@PageTitle("Help")
+@Route(layout = ContentLayout.class)
 public class HelpView extends VerticalLayout {
 
     public HelpView() {
