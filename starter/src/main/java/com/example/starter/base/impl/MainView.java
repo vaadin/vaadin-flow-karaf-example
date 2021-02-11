@@ -19,13 +19,13 @@ import org.osgi.framework.ServiceReference;
 @Route(value = "", layout = MainLayout.class)
 public class MainView extends VerticalLayout {
 
-    public GreetService getGreetService() throws Exception {
-        BundleContext bundleContext = FrameworkUtil.getBundle(MainView.class).getBundleContext();
-        ServiceReference<GreetService> serviceReference = bundleContext.getServiceReference(GreetService.class);
-        if( serviceReference == null) {
-            throw new Exception("Greet service not currently available, install it into Karaf to get proper greeting");
+    public String greet(String name) {
+        BundleContext ctx = FrameworkUtil.getBundle(MainView.class).getBundleContext();
+        ServiceReference<GreetService> reference = ctx.getServiceReference(GreetService.class);
+        if( reference == null) {
+            return "Greet service not currently available, install it into Karaf to get a proper greeting";
         }
-        return bundleContext.getService(serviceReference);
+        return ctx.getService(reference).greet(name);
     }
 
     public MainView() {
@@ -35,12 +35,7 @@ public class MainView extends VerticalLayout {
         textField.addThemeName("bordered");
         // Button click listeners can be defined as lambda expressions
         Button button = new Button("Say hello", e -> {
-            try {
-                Notification.show(getGreetService().greet(textField.getValue()));
-            } catch (Exception exception) {
-                Notification.show(exception.getMessage());
-            }
-
+                Notification.show(greet(textField.getValue()));
         });
 
         // Theme variants give you predefined extra styles for components.
