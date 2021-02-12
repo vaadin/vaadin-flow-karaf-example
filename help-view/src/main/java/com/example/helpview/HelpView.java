@@ -13,16 +13,18 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.example.routes;
+package com.example.helpview;
 
 import com.example.starter.base.ContentLayout;
 
 import com.vaadin.flow.component.Unit;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@Route(value = "help", layout = ContentLayout.class)
+@PageTitle("Help")
+@Route(layout = ContentLayout.class)
 public class HelpView extends VerticalLayout {
 
     public HelpView() {
@@ -33,7 +35,7 @@ public class HelpView extends VerticalLayout {
 
     private Div createViewInfo() {
         Div info = new Div();
-        info.setText("This view is located ouside of web application bundle "
+        info.setText("This view is located outside of web application bundle "
                 + "and can be undeployed/deployed at any time preserving functionality of the main application. "
                 + "The navigation target '/help' becomes available once the bundle with this view is deployed.");
         return info;
