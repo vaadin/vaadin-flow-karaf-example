@@ -1,7 +1,9 @@
 package com.example.starter.base.impl;
 
 import com.vaadin.flow.component.page.AppShellConfigurator;
+import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.shared.ui.Transport;
 import com.vaadin.flow.theme.Theme;
 
 /**
@@ -10,5 +12,6 @@ import com.vaadin.flow.theme.Theme;
  */
 @PWA(name = "Project Base for Vaadin", shortName = "Project Base")
 @Theme("my-theme")
+@Push(transport = Transport.LONG_POLLING)
 public class AppShell implements AppShellConfigurator {
 }

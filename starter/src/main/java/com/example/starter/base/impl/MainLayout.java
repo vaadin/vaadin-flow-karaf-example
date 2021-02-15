@@ -54,9 +54,6 @@ public class MainLayout extends HorizontalLayout implements RouterLayout {
         if (routes.size() > 1) {
             routes.stream().forEach(this::addNavigationItem);
         }
-        if (ui.getPushConfiguration().getPushMode().isEnabled()) {
-            ui.push();
-        }
     }
 
     private void addNavigationItem(RouteData data) {
@@ -66,12 +63,13 @@ public class MainLayout extends HorizontalLayout implements RouterLayout {
     }
 
     private String getCaption(RouteData data) {
-        Class<? extends Component> navigationTarget = data.getNavigationTarget();
+        Class<? extends Component> navigationTarget = data
+                .getNavigationTarget();
         PageTitle title = navigationTarget.getAnnotation(PageTitle.class);
-        if(title != null) {
+        if (title != null) {
             return title.value();
         } else {
-            return navigationTarget.getSimpleName();
+            return data.getTemplate();
         }
     }
 }
