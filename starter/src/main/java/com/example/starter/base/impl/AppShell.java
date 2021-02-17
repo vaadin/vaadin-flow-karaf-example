@@ -10,7 +10,7 @@ import com.vaadin.flow.theme.Theme;
  * Use the @PWA annotation make the application installable on phones, tablets
  * and some desktop browsers.
  */
-@PWA(name = "Project Base for Vaadin", shortName = "Project Base")
+@PWA(name = "Project Base for Vaadin", shortName = "Project Base", iconPath = "static/icons/icon.png")
 @Theme("my-theme")
 @Push(transport = Transport.LONG_POLLING)
 public class AppShell implements AppShellConfigurator {
