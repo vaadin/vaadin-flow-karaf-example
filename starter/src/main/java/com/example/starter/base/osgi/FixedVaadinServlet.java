@@ -34,6 +34,8 @@ import com.vaadin.flow.server.startup.ApplicationRouteRegistry;
 @HttpWhiteboardServletPattern("/*")
 public class FixedVaadinServlet extends OSGiVaadinServlet {
 
+    private ServiceTracker<GreetService, GreetService> tracker;
+
     @Override
     protected void servletInitialized() throws ServletException {
         getService().setClassLoader(getClass().getClassLoader());
@@ -42,7 +44,7 @@ public class FixedVaadinServlet extends OSGiVaadinServlet {
                 .getContext();
 
         Bundle bundle = FrameworkUtil.getBundle(FixedVaadinServlet.class);
-        ServiceTracker<GreetService, GreetService> tracker = new ServiceTracker<GreetService, GreetService>(
+        tracker = new ServiceTracker<GreetService, GreetService>(
                 bundle.getBundleContext(), GreetService.class, null) {
             @Override
             public GreetService addingService(
@@ -69,7 +71,14 @@ public class FixedVaadinServlet extends OSGiVaadinServlet {
             }
         };
         tracker.open();
+    }
 
+    @Override
+    public void destroy() {
+        super.destroy();
+        if (tracker != null) {
+            tracker.close();
+        }
     }
 
 }
