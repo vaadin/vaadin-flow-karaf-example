@@ -1,6 +1,10 @@
 package com.example.starter.base.impl;
 
 import com.example.starter.base.GreetService;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceReference;
+
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -9,9 +13,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.FrameworkUtil;
-import org.osgi.framework.ServiceReference;
 
 /**
  * The main view contains a text field for getting the user name and a button
@@ -22,9 +23,11 @@ import org.osgi.framework.ServiceReference;
 public class MainView extends VerticalLayout {
 
     public String greet(String name) {
-        BundleContext ctx = FrameworkUtil.getBundle(MainView.class).getBundleContext();
-        ServiceReference<GreetService> reference = ctx.getServiceReference(GreetService.class);
-        if( reference == null) {
+        BundleContext ctx = FrameworkUtil.getBundle(MainView.class)
+                .getBundleContext();
+        ServiceReference<GreetService> reference = ctx
+                .getServiceReference(GreetService.class);
+        if (reference == null) {
             return "Greet service not currently available, install it into Karaf to get a proper greeting";
         }
         return ctx.getService(reference).greet(name);
@@ -37,7 +40,7 @@ public class MainView extends VerticalLayout {
         textField.addThemeName("bordered");
         // Button click listeners can be defined as lambda expressions
         Button button = new Button("Say hello", e -> {
-                Notification.show(greet(textField.getValue()));
+            Notification.show(greet(textField.getValue()));
         });
 
         // Theme variants give you predefined extra styles for components.
