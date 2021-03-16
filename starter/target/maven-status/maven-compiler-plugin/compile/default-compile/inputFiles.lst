@@ -1,0 +1,9 @@
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/impl/MainLayout.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/impl/MainView.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/osgi/FixedVaadinServlet.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/GreetService.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/impl/AppShell.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/impl/DeregisteredRouteView.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/osgi/VaadinMode.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/impl/ServiceDependantView.java
+/opt/agent/temp/buildTmp/base-starter-flow-karaf/starter/src/main/java/com/example/starter/base/ContentLayout.java
