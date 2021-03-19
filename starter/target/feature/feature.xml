@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="project-base-karaf">
+    <feature name="project-base-karaf" description="Project base for Vaadin Flow and Karaf" version="1.0.0.SNAPSHOT">
+        <details>This example bundle contains default web app, that can be 
+        complemented by other view bundles.</details>
+        <feature prerequisite="true" dependency="false">wrap</feature>
+        <bundle>mvn:com.example/project-base-karaf/1.0.0-SNAPSHOT</bundle>
+        <bundle>wrap:mvn:com.vaadin/vaadin/19.0.2</bundle>
+        <bundle>wrap:mvn:com.vaadin/vaadin-core/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/flow-lit-template/6.0.3</bundle>
+        <bundle>mvn:com.vaadin/flow-polymer-template/6.0.3</bundle>
+        <bundle>mvn:com.vaadin/flow-push/6.0.3</bundle>
+        <bundle>mvn:com.vaadin.external.atmosphere/atmosphere-runtime/2.4.30.slf4jvaadin1</bundle>
+        <bundle>mvn:com.vaadin/flow-client/6.0.3</bundle>
+        <bundle>mvn:com.vaadin/flow-html-components/6.0.3</bundle>
+        <bundle>mvn:com.vaadin/flow-data/6.0.3</bundle>
+        <bundle>mvn:javax.validation/validation-api/2.0.0.Final</bundle>
+        <bundle>mvn:com.vaadin/flow-dnd/6.0.3</bundle>
+        <bundle>wrap:mvn:org.webjars.npm/vaadin__vaadin-mobile-drag-drop/1.0.0</bundle>
+        <bundle>wrap:mvn:org.webjars.npm/mobile-drag-drop/2.3.0-rc.1</bundle>
+        <bundle>mvn:com.vaadin/vaadin-lumo-theme/6.0.3</bundle>
+        <bundle>mvn:com.vaadin/vaadin-material-theme/6.0.3</bundle>
+        <bundle>mvn:com.vaadin/vaadin-accordion-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-avatar-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-button-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-checkbox-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-combo-box-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-custom-field-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-date-picker-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-date-time-picker-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-details-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-time-picker-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-select-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-dialog-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-form-layout-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-grid-flow/19.0.2</bundle>
+        <bundle>mvn:org.apache.commons/commons-lang3/3.0</bundle>
+        <bundle>mvn:com.vaadin/vaadin-icons-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-iron-list-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-list-box-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-login-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-ordered-layout-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-progress-bar-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-radio-button-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-split-layout-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-tabs-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-text-field-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-upload-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-notification-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-app-layout-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-context-menu-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-menu-bar-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-board-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-charts-flow/19.0.2</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.11.2</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.11.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-confirm-dialog-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-cookie-consent-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-crud-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-grid-pro-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/vaadin-rich-text-editor-flow/19.0.2</bundle>
+        <bundle>mvn:com.vaadin/collaboration-engine/3.0.1</bundle>
+        <bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.11.2</bundle>
+        <bundle>mvn:com.vaadin/flow-osgi/6.0.1</bundle>
+        <bundle>mvn:com.vaadin/flow-server/6.0.3</bundle>
+        <bundle>mvn:com.vaadin.external.gwt/gwt-elemental/2.8.2.vaadin2</bundle>
+        <bundle>mvn:commons-fileupload/commons-fileupload/1.3.3</bundle>
+        <bundle>mvn:commons-io/commons-io/2.5</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.11.2</bundle>
+        <bundle>mvn:org.jsoup/jsoup/1.12.1</bundle>
+        <bundle>mvn:com.helger/ph-css/6.1.1</bundle>
+        <bundle>mvn:com.helger/ph-commons/9.1.2</bundle>
+        <bundle>mvn:net.bytebuddy/byte-buddy/1.10.21</bundle>
+        <bundle>mvn:com.vaadin.external/gentyref/1.2.0.vaadin1</bundle>
+        <bundle>mvn:org.apache.commons/commons-compress/1.19</bundle>
+        <bundle>wrap:mvn:org.apache.httpcomponents/httpclient/4.5.13</bundle>
+        <bundle>wrap:mvn:org.apache.httpcomponents/httpcore/4.4.13</bundle>
+        <bundle>mvn:commons-logging/commons-logging/1.2</bundle>
+        <bundle>mvn:commons-codec/commons-codec/1.11</bundle>
+        <bundle>mvn:com.vaadin/license-checker/1.2.0</bundle>
+        <bundle>mvn:com.github.oshi/oshi-core/5.5.0</bundle>
+        <bundle>mvn:net.java.dev.jna/jna/5.7.0</bundle>
+        <bundle>mvn:net.java.dev.jna/jna-platform/5.7.0</bundle>
+        <bundle>mvn:org.slf4j/slf4j-simple/1.7.25</bundle>
+        <bundle>mvn:org.slf4j/slf4j-api/1.7.25</bundle>
+    </feature>
+</features>

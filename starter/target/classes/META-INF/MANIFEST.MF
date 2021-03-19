@@ -1,0 +1,41 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1616145825231
+Bundle-Description: This example bundle contains default web app, that
+  can be          complemented by other view bundles.
+Bundle-ManifestVersion: 2
+Bundle-Name: Project base for Vaadin Flow and Karaf
+Bundle-SymbolicName: project-base-karaf
+Bundle-Version: 1.0.0.202103190923
+Created-By: 1.8.0_201 (Oracle Corporation)
+Export-Package: com.example.starter.base;uses:="com.vaadin.flow.compon
+ ent.html,com.vaadin.flow.router";version="1.0.0"
+Import-Package: com.vaadin.flow.component;version="[6.0,7)",com.vaadin
+ .flow.component.applayout;version="[19.0,20)",com.vaadin.flow.compone
+ nt.avatar;version="[19.0,20)",com.vaadin.flow.component.button;versio
+ n="[19.0,20)",com.vaadin.flow.component.dependency;version="[6.0,7)",
+ com.vaadin.flow.component.html;version="[6.0,7)",com.vaadin.flow.comp
+ onent.internal;version="[6.0,7)",com.vaadin.flow.component.notificati
+ on;version="[19.0,20)",com.vaadin.flow.component.orderedlayout;versio
+ n="[19.0,20)",com.vaadin.flow.component.page;version="[6.0,7)",com.va
+ adin.flow.component.tabs;version="[19.0,20)",com.vaadin.flow.componen
+ t.textfield;version="[19.0,20)",com.vaadin.flow.dom;version="[6.0,7)"
+ ,com.vaadin.flow.osgi.support.servlet;version="[6.0,7)",com.vaadin.fl
+ ow.router;version="[6.0,7)",com.vaadin.flow.server;version="[6.0,7)",
+ com.vaadin.flow.server.startup;version="[6.0,7)",com.vaadin.flow.shar
+ ed;version="[6.0,7)",com.vaadin.flow.shared.ui;version="[6.0,7)",com.
+ vaadin.flow.theme;version="[6.0,7)",javax.servlet;version="[3.1,4)",o
+ rg.osgi.framework;version="[1.9,2)",org.osgi.util.tracker;version="[1
+ .5,2)"
+Private-Package: com.example.starter.base.impl,com.example.starter.bas
+ e.osgi,static.icons,static.images
+Provide-Capability: osgi.service;objectClass:List<String>="javax.servl
+ et.Servlet";uses:="javax.servlet"
+Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.compo
+ nent)(version>=1.4.0)(!(version>=2.0.0)))",osgi.implementation;filter
+ :="(&(osgi.implementation=osgi.http)(version>=1.1.0)(!(version>=2.0.0
+ )))",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/com.example.starter.base.osgi.FixedVaadinS
+ ervlet.xml
+Tool: Bnd-5.2.0.202010142003
+Vaadin-OSGi-Extender: true
+

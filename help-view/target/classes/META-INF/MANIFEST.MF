@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1616145854321
+Bundle-ManifestVersion: 2
+Bundle-Name: Vaadin view for help
+Bundle-SymbolicName: help-view
+Bundle-Version: 1.0.0.202103190924
+Created-By: 1.8.0_201 (Oracle Corporation)
+Import-Package: com.example.starter.base;version="[1.0,2)",com.vaadin.
+ flow.component;version="[6.0,7)",com.vaadin.flow.component.html;versi
+ on="[6.0,7)",com.vaadin.flow.component.orderedlayout;version="[19.0,2
+ 0)",com.vaadin.flow.router;version="[6.0,7)"
+Private-Package: com.example.helpview
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-5.2.0.202010142003
+Vaadin-OSGi-Extender: true
+

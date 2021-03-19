@@ -1,0 +1,10 @@
+com/example/starter/base/osgi/FixedVaadinServlet.class
+com/example/starter/base/osgi/FixedVaadinServlet$1.class
+com/example/starter/base/impl/ServiceDependantView.class
+com/example/starter/base/osgi/VaadinMode.class
+com/example/starter/base/ContentLayout.class
+com/example/starter/base/impl/AppShell.class
+com/example/starter/base/impl/DeregisteredRouteView.class
+com/example/starter/base/impl/MainLayout.class
+com/example/starter/base/GreetService.class
+com/example/starter/base/impl/MainView.class

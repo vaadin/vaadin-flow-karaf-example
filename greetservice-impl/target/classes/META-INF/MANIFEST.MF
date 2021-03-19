@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1616145854637
+Bundle-Description: The greetservice DS component - built using OSGi e
+ nRoute R7
+Bundle-ManifestVersion: 2
+Bundle-Name: greetservice-impl
+Bundle-SymbolicName: greetservice-impl
+Bundle-Version: 1.0.0.202103190924
+Created-By: 1.8.0_201 (Oracle Corporation)
+Import-Package: com.example.starter.base;version="[1.0,2)"
+Private-Package: com.example.greetservice
+Provide-Capability: osgi.service;objectClass:List<String>="com.example
+ .starter.base.GreetService";uses:="com.example.starter.base"
+Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.compo
+ nent)(version>=1.4.0)(!(version>=2.0.0)))",osgi.ee;filter:="(&(osgi.e
+ e=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/com.example.greetservice.GreetServiceImpl.
+ xml
+Tool: Bnd-5.2.0.202010142003
+
