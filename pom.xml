@@ -108,6 +108,7 @@
     <modules>
         <module>starter</module>
         <module>help-view</module>
+        <module>greetservice-api</module>
         <module>greetservice-impl</module>
     </modules>
 
