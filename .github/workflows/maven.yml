@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - master
-      - v11
+      - v19
 
 jobs:
   build:
