@@ -1,1 +1,2 @@
+Import-Package: !java.*,*
 Vaadin-OSGi-Extender: true
