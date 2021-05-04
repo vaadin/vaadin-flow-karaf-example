@@ -1,6 +1,6 @@
-# Base Starter for Vaadin Flow and Karaf in NPM mode
+# Example project for Vaadin Flow and Apache Karaf
 
-This project can be used as a starting point to create your own Vaadin Flow application bundle for Karaf.
+This project demonstrates how you can build modular web applications using Vaadin Flow and Apache Karaf. The project can also be used as a starting point to create your own Vaadin Flow application bundle for Karaf.
 It has the necessary dependencies and files to help you get started.
 **This project has been revised for Vaadin 19 (GA in March 2021) which brings back OSGi support in npm mode.
 For now, it Vaadin OSGi support is only for Flow based views (Java UIs), but not for Fusion (TypeScript UIs).**
