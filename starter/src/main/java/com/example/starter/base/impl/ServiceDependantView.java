@@ -1,6 +1,6 @@
 package com.example.starter.base.impl;
 
-import com.example.starter.base.GreetService;
+import com.example.greetservice.GreetService;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;

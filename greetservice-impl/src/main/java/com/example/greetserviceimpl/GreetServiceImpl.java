@@ -1,6 +1,6 @@
-package com.example.greetservice;
+package com.example.greetserviceimpl;
 
-import com.example.starter.base.GreetService;
+import com.example.greetservice.GreetService;
 import org.osgi.service.component.annotations.Component;
 
 @Component

@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 
 import java.util.Arrays;
 
-import com.example.starter.base.GreetService;
+import com.example.greetservice.GreetService;
 import com.example.starter.base.impl.MainLayout;
 import com.example.starter.base.impl.ServiceDependantView;
 import org.osgi.framework.Bundle;

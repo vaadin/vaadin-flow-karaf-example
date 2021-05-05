@@ -7,16 +7,24 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     
-    <artifactId>greetservice-impl</artifactId>
+    <artifactId>greetservice-api</artifactId>
 
-    <description>The greetservice DS component - built using OSGi enRoute R7</description>
+    <description>The greetservice DS API - built using OSGi enRoute R7</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>greetservice-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
+      <dependency>
+          <groupId>org.osgi</groupId>
+          <artifactId>osgi.cmpn</artifactId>
+          <version>7.0.0</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>org.osgi</groupId>
+          <artifactId>osgi.core</artifactId>
+          <version>7.0.0</version>
+          <scope>provided</scope>
+      </dependency>
     </dependencies>
 
     <build>
@@ -49,5 +57,5 @@
             </plugin>
         </plugins>
     </build>
-    <name>greetservice-impl</name>
+    <name>greetservice-api</name>
 </project>
