@@ -12,6 +12,6 @@ import com.vaadin.flow.theme.Theme;
  */
 @PWA(name = "Project Base for Vaadin", shortName = "Project Base", iconPath = "static/icons/icon.png")
 @Theme("my-theme")
-@Push(transport = Transport.LONG_POLLING)
+@Push
 public class AppShell implements AppShellConfigurator {
 }
