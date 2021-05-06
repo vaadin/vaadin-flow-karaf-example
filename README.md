@@ -1,46 +1,49 @@
-# Base Starter for Vaadin Flow and Karaf in NPM mode
+# Example project for Vaadin Flow and Apache Karaf
 
-This project can be used as a starting point to create your own Vaadin Flow application bundle for Karaf.
-It has the necessary dependencies and files to help you get started.
-**This project has been revised for Vaadin 19 (GA in March 2021) which brings back OSGi support in npm mode.
-For now, it Vaadin OSGi support is only for Flow based views (Java UIs), but not for Fusion (TypeScript UIs).**
+This project demonstrates how you can build modular web applications using Vaadin Flow and Apache Karaf. The project can also be used as a starting point to create your own Vaadin Flow application bundle for Karaf.
 
 For more Vaadin usage samples, you can go to vaadin.com/start.
 
-To access it directly from github, clone the repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
+To access the project directly from github, clone or download the repository and import the project to the IDE of your choice as a Maven project. You need to have 11 installed.
 
-The project consist of three sub-projects:
-- starter 
+The project consist of four sub-projects:
+- main-ui 
+- greetservice-api
 - greetservice-impl
 - help-view
 
-The `starter` project contains the code for Web Application Bundle (WAB) which can be deployed
-to any OSGi container. It contains MainView, that uses GreetService, in case an implementation is available as an OSGi service. It also provides a simple menu and MainLayout for other bundles that can contribute views to the UI.
+The `main-ui` project contains the code for Web Application Bundle (WAB) which can be deployed
+to any OSGi container. This is also the Karaf feature that gets packaged during the build. The most relevant parts are two views that it contains:
+ * MainView, which is always available. It uses GreetService, in a Button click listener in case an implementation is available as an OSGi service. 
+ * ServiceDependantView view is only visible in the UI if an implementation of GreetService is available. 
 
-The `help-view` project represents another project which contains an optional view (and route target). It can be deployed or undeployed at any time. The view will be available in the `starter` project if the `help-view` bundle is deployed.
+The module also provides a simple menu and MainLayout for other bundles that can contribute views to the UI, and Vaadin boiler plate to configure app for PWA features, server push, missing views etc.
 
-The `greetservice-impl` project provides an implementation for GreetService, that is defined and used by the MainView in the `starter` project.
+The `greetservice-api` project provides an API for a dummy service used by the main-ui project.
+
+The `greetservice-impl` project provides an implementation for GreetService, that is defined and used by the MainView in the `main-ui` project. The main-ui does not depend on this bundle and it is not required to run the project. But deploying it separately affects how the application behaves.
+
+The `help-view` is another optional bundle which contains an optional view (and a route target). It can be deployed or un-deployed at any time. The help view will be available in the `main-ui` project and its menu only if the `help-view` bundle is deployed.
+
 
 ## Build and run a Vaadin web application OSGi bundle
 
 The simplest way to start the project is run command `mvn install` to install project artifact and
-`mvn -pl starter install -Prun` to run Karaf OSGi container. Note that this only deploys the starter bundle, and not the optional help-view or the greetservice-impl.
+`mvn -pl main-ui install -Prun` to run Karaf OSGi container. After a while, the Vaadin UI will be available in http://localhost:8181. Note that this only deploys the main-ui bundle, and not the optional help-view or greetservice-impl bundles.
 
-For more dynamic tutorial follow these steps:
+For more dynamic tutorial we suggest to follow these steps:
 
  * Build the project using `mvn install`
  * Download Karaf and start it from command line using `./bin/karaf` from the Karaf directory
  * In the Karaf console, execute `feature:install http war` to install required web capabilities
- * Next, install the plain starter using `feature:repo-add mvn:com.example/project-base-karaf/1.0.0-SNAPSHOT/xml/features` and `feature:install project-base-karaf`
+ * Next, install the plain main-ui using `feature:repo-add mvn:com.example/main-ui/1.0.0-SNAPSHOT/xml/features` and `feature:install main-ui`. This deploys the main-ui and all required dependencies.
  * Now you can navigate to http://localhost:8181 to see the basic UI without the other bundles. Try clicking the button as well.
  * Next, install the greetservice-impl bundle using `bundle:install mvn:com.example/greetservice-impl/1.0.0-SNAPSHOT` and `bundle:start greetservice-impl`
- * Try the button again
- * Next install the optional help view using `bundle:install mvn:com.example/help-view/1.0.0-SNAPSHOT` and `bundle:start help-view`
- * Reload the browser and see how a simple menu appears with the newly loaded help view in it
-
+ * Now you can see that `Optional` view (defined in ServiceDependantView Java class) appeared in the menu. Nothing needs to be done at the browser, because Vaadin takes care of updating the UI using the WebSocket based "server push" connection. Try the button again and you'll see that the click listener now responds differently as an implementation for GreetService is available.
+ * Next, install the optional help view using `bundle:install mvn:com.example/help-view/1.0.0-SNAPSHOT` and `bundle:start help-view`
+ * The menu in your browser now has the newly loaded help view in it
 
 See readme files starter/README.md and help-view/README.md in the projects for further details.
-
 
 ## Deploying Vaadin specific bundles to an OSGi container
 
@@ -58,7 +61,18 @@ along with Vaadin WAB. As a result:
 
 ## Limitations
 
-See Limitations section in the starter project [README.md](starter/README.md).
+Here is a list of things which are not currently supported:
+
+- NPM dev mode: it's possible to run Vaadin web application in both production 
+and dev mode, but dev mode can be used only with precompiled frontend
+ resources (via vaadin-maven-plugin) and it's not possible to use a dev server (Webpack) within OSGi.
+- it's not possible to use OSGi declarative services with Vaadin components using injection: 
+you may not inject a service declaratively in Vaadin classes (using annotations) 
+just because UI objects are not managed by OSGi. But you still may call OSGi services programmatically of course.
+- There is no automatic servlet registration. So the web application 
+bundle should register the servlet itself.
+- Server push may have issues with certain HTTP Whiteboard implementations. 
+
 
 :warning:
 At the moment, it is not possible to modify frontend resources on the fly (webpack dev server is not available at runtime). This means that for every frontend change, you have to rebuild the frontend bundle. ([Issue for devmode](https://github.com/vaadin/flow/issues/9108))

@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.example</groupId>
-        <artifactId>project-base-karaf-parent</artifactId>
+        <artifactId>vaadin-flow-karaf-example</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     
     <artifactId>greetservice-api</artifactId>
-
+    <name>greetservice-api</name>
     <description>The greetservice DS API - built using OSGi enRoute R7</description>
 
     <dependencies>
@@ -57,5 +57,4 @@
             </plugin>
         </plugins>
     </build>
-    <name>greetservice-api</name>
 </project>

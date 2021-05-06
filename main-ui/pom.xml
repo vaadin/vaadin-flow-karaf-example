@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.example</groupId>
-        <artifactId>project-base-karaf-parent</artifactId>
+        <artifactId>vaadin-flow-karaf-example</artifactId>
        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>project-base-karaf</artifactId>
-    <name>Project base for Vaadin Flow and Karaf</name>
-    <description>This example bundle contains default web app, that can be 
+    <artifactId>main-ui</artifactId>
+    <name>Main UI bundle</name>
+    <description>This example bundle contains the main Vaadin web app, that can be 
         complemented by other view bundles.</description>
     <packaging>jar</packaging>
 
@@ -37,7 +37,6 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-osgi</artifactId>
-            <version>7.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -120,7 +119,7 @@
             <plugin>
                 <groupId>org.apache.karaf.tooling</groupId>
                 <artifactId>karaf-maven-plugin</artifactId>
-                <version>4.3.0</version>
+                <version>4.3.1</version>
                 <extensions>true</extensions>
                 <configuration>
                     <enableGeneration>true</enableGeneration>
