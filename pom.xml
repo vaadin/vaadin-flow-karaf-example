@@ -110,6 +110,8 @@
         <module>greetservice-api</module>
         <module>greetservice-impl</module>
         <module>help-view</module>
+        <module>frontend-resources</module>
+        <module>designer-view</module>
     </modules>
 
 </project>
