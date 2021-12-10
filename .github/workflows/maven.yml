@@ -32,4 +32,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Test deployment
-      run: mvn -Bpl main-ui install -Ptest-deployment --file pom.xml
+      run: mvn -B -pl main-ui install -Ptest-deployment --file pom.xml
