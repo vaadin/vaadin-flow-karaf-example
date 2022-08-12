@@ -217,7 +217,7 @@
                                 <configuration>
                                     <keepRunning>true</keepRunning>
                                     <deployProjectArtifact>true</deployProjectArtifact>
-                                    <featuresToInstall>felix-http,war,scr,spifly,${project.artifactId}</featuresToInstall>
+                                    <featuresToInstall>http-whiteboard,scr,spifly,${project.artifactId}</featuresToInstall>
                                 </configuration>
                             </execution>
                         </executions>
