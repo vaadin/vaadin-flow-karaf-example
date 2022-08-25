@@ -77,6 +77,7 @@ There can be two cases when this happens:
   - After a cold start (clean install) since the karaf runtime is being downloaded, extracted and at least 180-190 bundles are being cached (depending on the features installed) it would take some seconds for the application to be reachable, so wait a while and refresh the page to see the application up and running.
   This is almost not happening when you are not cleaning the target folder and the application is just being run from an existing artifact and cached karaf runtime.
   - Statistically speaking, almost 1 out of 10 times when the application starts (cold or hot), for some currently unknown problem the application would respond with 404 error all the time, and waiting would not alleviate the situation.
+  Looking at the logs in `main-ui/target/karaf/data/log/karaf.log`, it seems that multiple port binding exceptions are reported all the times (even while the application is responding normally) which might be related to 404 errors, but currently there is no fix or workaround available for this. 
   See https://github.com/vaadin/vaadin-flow-karaf-example/issues/100
 
 :warning:
