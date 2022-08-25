@@ -85,6 +85,10 @@
                     <groupId>com.vaadin</groupId>
                     <artifactId>fusion-endpoint</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>collaboration-engine</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -101,7 +105,6 @@
             <version>7.0.0</version>
             <scope>provided</scope>
         </dependency>
-
 
     </dependencies>
 

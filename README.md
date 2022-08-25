@@ -72,7 +72,12 @@ just because UI objects are not managed by OSGi. But you still may call OSGi ser
 - There is no automatic servlet registration. So the web application 
 bundle should register the servlet itself.
 - Server push may have issues with certain HTTP Whiteboard implementations. 
-
+- Sometimes after the `Artifact deployed` message appears in the terminal, requesting `http://localhost:8181` would result in a 404 error. 
+There can be two cases when this happens:
+  - After a cold start (clean install) since the karaf runtime is being downloaded, extracted and at least 180-190 bundles are being cached (depending on the features installed) it would take some seconds for the application to be reachable, so wait a while and refresh the page to see the application up and running.
+  This is almost not happening when you are not cleaning the target folder and the application is just being run from an existing artifact and cached karaf runtime.
+  - Statistically speaking, almost 1 out of 10 times when the application starts (cold or hot), for some currently unknown problem the application would respond with 404 error all the time, and waiting would not alleviate the situation.
+  See https://github.com/vaadin/vaadin-flow-karaf-example/issues/100
 
 :warning:
 At the moment, it is not possible to modify frontend resources on the fly (webpack dev server is not available at runtime). This means that for every frontend change, you have to rebuild the frontend bundle. ([Issue for devmode](https://github.com/vaadin/flow/issues/9108))
