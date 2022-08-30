@@ -18,24 +18,6 @@
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <!-- Replace artifactId with vaadin-core to use only free components -->
-            <artifactId>vaadin</artifactId>
-            <exclusions>
-                <!-- Exclude the Fusion artifact which may not be used in 
-                    OSGi -->
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>fusion-endpoint</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>collaboration-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.vaadin</groupId>
             <artifactId>flow-osgi</artifactId>
         </dependency>
 
@@ -44,21 +26,6 @@
             <artifactId>greetservice-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>osgi.cmpn</artifactId>
-            <version>7.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>osgi.core</artifactId>
-            <version>7.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-
 
         <!-- Added to provide logging output as Flow uses -->
         <!-- the unbound SLF4J no-operation (NOP) logger implementation -->
@@ -217,7 +184,7 @@
                                 <configuration>
                                     <keepRunning>true</keepRunning>
                                     <deployProjectArtifact>true</deployProjectArtifact>
-                                    <featuresToInstall>felix-http,war,scr,spifly,${project.artifactId}</featuresToInstall>
+                                    <featuresToInstall>http-whiteboard,scr,spifly,${project.artifactId}</featuresToInstall>
                                 </configuration>
                             </execution>
                         </executions>
