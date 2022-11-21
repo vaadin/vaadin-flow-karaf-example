@@ -209,7 +209,7 @@
                                 <configuration>
                                     <keepRunning>false</keepRunning>
                                     <deployProjectArtifact>true</deployProjectArtifact>
-                                    <featuresToInstall>http,war,${project.artifactId}</featuresToInstall>
+                                    <featuresToInstall>http-whiteboard,scr,spifly,${project.artifactId}</featuresToInstall>
                                 </configuration>
                             </execution>
                         </executions>
