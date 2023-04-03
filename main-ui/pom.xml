@@ -11,7 +11,7 @@
 
     <artifactId>main-ui</artifactId>
     <name>Main UI bundle</name>
-    <description>This example bundle contains the main Vaadin web app, that can be 
+    <description>This example bundle contains the main Vaadin web app, that can be
         complemented by other view bundles.</description>
     <packaging>jar</packaging>
 
@@ -32,6 +32,17 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>${jna.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>${jna.version}</version>
         </dependency>
 
         <dependency>
@@ -106,7 +117,7 @@
         </plugins>
         <pluginManagement>
             <plugins>
-                <!--This plugin's configuration is used to store Eclipse 
+                <!--This plugin's configuration is used to store Eclipse
                     m2e settings only. It has no influence on the Maven build itself. -->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
@@ -166,7 +177,7 @@
     </build>
 
     <profiles>
-        
+
 
         <profile>
             <id>run</id>

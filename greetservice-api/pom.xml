@@ -6,10 +6,22 @@
         <artifactId>vaadin-flow-karaf-example</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    
     <artifactId>greetservice-api</artifactId>
     <name>greetservice-api</name>
     <description>The greetservice DS API - built using OSGi enRoute R7</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>${jna.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>${jna.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
