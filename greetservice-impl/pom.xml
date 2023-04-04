@@ -6,7 +6,7 @@
         <artifactId>vaadin-flow-karaf-example</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    
+
     <artifactId>greetservice-impl</artifactId>
     <name>greetservice-impl</name>
     <description>The greetservice DS component - built using OSGi enRoute R7</description>

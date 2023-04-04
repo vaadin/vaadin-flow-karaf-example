@@ -13,7 +13,8 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>23.3.6</vaadin.version>
+        <vaadin.version>23.3.9</vaadin.version>
+        <jna.version>5.13.0</jna.version>
     </properties>
 
         <repositories>
@@ -43,6 +44,7 @@
         </repository>
     </repositories>
 
+
     <pluginRepositories>
         <!-- The order of definitions matters. Explicitly defining central here to make sure it has the highest priority. -->
         <pluginRepository>
@@ -69,6 +71,16 @@
                 <scope>import</scope>
                 <version>${vaadin.version}</version>
             </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna-platform</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -79,7 +91,7 @@
             <!-- Replace artifactId with vaadin-core to use only free components -->
             <artifactId>vaadin</artifactId>
             <exclusions>
-                <!-- Exclude the Fusion artifact which may not be used in 
+                <!-- Exclude the Fusion artifact which may not be used in
                     OSGi -->
                 <exclusion>
                     <groupId>com.vaadin</groupId>
